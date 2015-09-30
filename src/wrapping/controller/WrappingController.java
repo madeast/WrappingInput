@@ -20,6 +20,12 @@ public class WrappingController
 		myView.showResponse("You typed in: " + myName);
 		String temp = myView.grabAnswer("Type in your age");
 		int myAge;
+		
+		while(!isInteger(temp))
+		{
+			temp = myView.grabAnswer("Type in a positive integer for your age!!!");
+		}
+		
 		if (isInteger(temp))
 		{
 			myAge = Integer.parseInt(temp);
@@ -28,9 +34,19 @@ public class WrappingController
 		{
 			myAge = -99999999;
 		}
+	
 		myView.showResponse("You typed in: " + myAge);
 		String tempWeight = myView.grabAnswer("Type in your weight");
-		double myWeight = Double.parseDouble(tempWeight);
+		double myWeight; 
+		
+		if(isDouble(tempWeight))
+		{
+			myWeight = Double.parseDouble(tempWeight);
+		}
+		else
+		{
+			myWeight = -999.99;
+		}
 		myView.showResponse("You typed in: " + myWeight);
 
 		myTestThing = new Thingy(myName, myAge, myWeight);
