@@ -39,6 +39,11 @@ public class WrappingController
 		String tempWeight = myView.grabAnswer("Type in your weight");
 		double myWeight; 
 		
+		while(!isDouble(tempWeight))
+		{
+			tempWeight = myView.grabAnswer("Type in a valid number for your weight!!!");
+		}
+		
 		if(isDouble(tempWeight))
 		{
 			myWeight = Double.parseDouble(tempWeight);
